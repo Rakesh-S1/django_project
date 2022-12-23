@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-soihnqz)2z!2zr_*a#768lv7f*ue!h#2#w03$&v%$@a5_3llqa'
+SECRET_KEY = 't&85upg$i+mjw^vtuvzd-y@#p3k4l8^$o%1wjz_=p#1+owrva$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://myblo9website.herokuapp.com/"]
+ALLOWED_HOSTS = ["https://myblo9.herokuapp.com/"]
 
 
 # Application definition
@@ -135,6 +136,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'blog-home'
 
 LOGIN_URL = 'login'
+
+django_heroku.settings(locals())
 
 
 
