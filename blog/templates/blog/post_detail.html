@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+
+
+            <div class="post-preview border-bottom">
+                <div class="header">
+                    <img class = "rounded-circle article-img" height=30px width=30px src="{{object.author.profile.image.url}}">
+                     <h2 class="post-title">{{object.title}}</h2>
+                     </div>
+                    <p class="post-subtitle">{{object.content}}</p>
+                
+                <p class="post-meta">
+                    Posted by <br>
+                    <a href = "{%url 'user-post' object.author.username%}">
+                    {{object.author}} </a>
+                    on {{object.date_posted|date:"F d, Y"}}<br>
+                    {% if object.author == user %}
+                    <br> 
+                    <div>
+                       <i> <a class= "btn btn-primary btn-sm" href = "{%url 'post-update' object.id%}">Update</a>
+                        <a class= "btn btn-danger btn-sm" href = "{%url 'post-delete' object.id%}">Delete</a></i>
+                    </div>
+                    {%endif%}
+                </p>
+            </div>
+            <br>
+          
+
+{%endblock content%}
